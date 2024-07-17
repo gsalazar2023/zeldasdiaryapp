@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Champion's Tunic",
+        "location": ["Kakariko Village"],
+        "id": 1,
+        "image": "assets/icons/championtunic.svg"
+    },
+    {
+        "name": "Hylian Set",
+        "location": ["Kakariko Village", "Hateno Village"],
+        "id": 2,
+        "image":"assets/icons/hylianset.svg"
+    },
+    {
+        "name": "Desert Voe Set",
+        "location": ["Gerudo Town (Secret Shop)"],
+        "id": 3,
+        "image":"assets/icons/desertvoeset.svg"
+    }
+]
