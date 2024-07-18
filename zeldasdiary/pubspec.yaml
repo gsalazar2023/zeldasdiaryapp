@@ -81,7 +81,7 @@ flutter:
   fonts:
     - family: FOT
       fonts:
-        - asset: assets/font/FOT-RodinProN.otf
+        - asset: assets/font/FOT-RodinProN-M.otf
     #       - asset: fonts/Schyler-Italic.ttf
     #         style: italic
     - family: The Wild Breath of Zelda
