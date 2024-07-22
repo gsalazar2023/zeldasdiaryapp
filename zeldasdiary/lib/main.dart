@@ -1,70 +1,87 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:zeldasdiary/data/armors.dart';
+import 'package:zeldasdiary/data/item.dart';
+import 'package:zeldasdiary/data/monster.dart';
 
-void main() {
-  runApp(const MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Menu extends StatelessWidget {
+  const Menu({super.key});
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+  void prueba()
+  {
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
   }
 
   @override
   Widget build(BuildContext context) {
+    String iconoArmor = "assets/icons/armor.svg";
+    String iconoItem = "assets/icons/item.svg";
+    String iconoMonster = "assets/icons/monster.svg";
+    
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        backgroundColor: Color.fromARGB(255, 198, 225, 230),
+        title: Text("Menu"),
       ),
+
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+        child: Container(
+          width: 350,
+          height: 550,
+          child: Card( 
+            color: Color.fromARGB(255, 53, 201, 227),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+            Text(' Perfil ',  style: TextStyle(fontFamily: 'SonicFont', fontSize: 20)),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(                 
+                  builder: (context) => const armors()));
+              },
+            child: SvgPicture.asset(iconoArmor, height: 60, width: 70,)), 
+        
+        const Padding(padding: EdgeInsets.only(bottom: 105)),
+           
+            Text(' Objetos ',  style: TextStyle(fontFamily: 'SonicFont', fontSize: 20)),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(                 
+                  builder: (context) => const Item())); //ir a lista de juegos
+              },
+              child: SvgPicture.asset(iconoItem, height: 60, width: 70,)),
+         
+             const Padding(padding: EdgeInsets.only(bottom: 45)),
+
+              Text(' Monstruos ',  style: TextStyle(fontFamily: 'SonicFont', fontSize: 20)),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(                 
+                  builder: (context) => const Monster())); //ir a lista de juegos
+              },
+              child: SvgPicture.asset(iconoMonster, height: 60, width: 70,)),
+         
+             const Padding(padding: EdgeInsets.only(bottom: 45)),
+            ]
+          )        
+                ),
+        )
+    ),
+
+      persistentFooterAlignment: AlignmentDirectional.bottomCenter,
+      persistentFooterButtons: <Widget>[
+      ElevatedButton(onPressed: () {
+            Navigator.pop(context);
+      },
+            child: const Text("Volver")),
+      ]
     );
   }
 }

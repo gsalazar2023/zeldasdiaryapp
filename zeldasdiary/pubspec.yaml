@@ -64,6 +64,9 @@ flutter:
     - assets/icons/championtunic.svg
     - assets/icons/hylianset.svg
     - assets/icons/desertvoeset.svg
+    - assets/icons/monster.svg
+    - assets/icons/item.svg
+    - assets/icons/armor.svg
 
     - assets/json/armor.json
 
