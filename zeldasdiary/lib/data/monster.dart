@@ -1,78 +1,41 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+class Monster {
+  String category;
+  String desc;
+  List<String> drops;
+  List<String> location;
+  int id;
+  String image;
+  String name;
 
+  Monster(
+      {required this.category,
+      required this.desc,
+      required this.id,
+      required this.image,
+      required this.name,
+      required this.drops,
+      required this.location});
 
-class Monster extends StatelessWidget {
-  const Monster({super.key});
+  factory Monster.fromJson(Map<String, dynamic> json) {
+    //print('Monster json \n');
+    //print(json);
+    final dropsJson =
+        json['drops'] as List<dynamic>?; // usa 'drops' en lugar de 'locations'
+    final List<String> drops = dropsJson != null
+        ? List<String>.from(dropsJson.map((item) => item as String))
+        : [];
 
-  @override
-  Widget build(BuildContext context) {
-
-    
-     return Scaffold(
-      appBar: AppBar(
-
-        backgroundColor: Color.fromARGB(255, 134, 130, 255),
-        title: Text("Items"),
-      ),
-
-       body: Center(
-              child: Container(
-          width: 900,
-          height: 350,
-          child: Card(
-            color: Color.fromARGB(255, 219, 216, 254),
-            child: ListView(
-              children: <Widget>[
-                           Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(height: 50),
-                  Text("Monster: "),
-                ],
-              ),
-              SizedBox(height: 50),
-                Container(
-                  height: 55,
-                  color: Color.fromARGB(255, 65, 197, 253),
-                  child: const Center(
-                    child: Text("Monster 1"),
-                )),
-                Container(
-                  height: 5,
-                ),
-                Container(
-                  height: 55,
-                  color: Color.fromARGB(255, 65, 197, 253),
-                  child: const Center(
-                       child: Text("Monster 2"),
-                )),
-                Container(
-                  height: 5,
-                ),
-               Container(
-                  height: 55,
-                 color: Color.fromARGB(255, 65, 197, 253),
-                  child: const Center(
-                       child: Text("Monster 3"),
-                )), 
-            ],
-          ),
-                ),
-        ),
-       ),
-      
-      persistentFooterAlignment: AlignmentDirectional.bottomCenter,
-      persistentFooterButtons: <Widget>[
-      ElevatedButton(onPressed: () {
-            Navigator.pop(context);
-      },
-            child: const Text("Regresar")),
-            
-      ]
-
-      
-      
-    );
+    final locJson = json['common_locations'] as List<dynamic>?;
+    final List<String> location = locJson != null
+        ? List<String>.from(locJson.map((item) => item as String))
+        : [];
+    return Monster(
+        category: json['category'] as String,
+        desc: (json['desc'] as String?) ?? "",
+        drops: drops,
+        id: json['id'] as int,
+        location: location,
+        image: json['image'] as String,
+        name: json['name'] as String);
   }
 }
