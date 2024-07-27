@@ -1,8 +1,5 @@
-# zeldasdiary
+ZELDA'S DIARY
 
-Aplicación orientada a guiar al usuario para la mejora de las armaduras que tiene a posesión, detallando las ubicaciones de monstruos y/o items que se requieren para mejorarlas al siguiente nivel.
-
-## Detalles
 
 Integrantes:
 
@@ -10,7 +7,7 @@ Integrantes:
 -Martin Saucedo
 -Gabriela Salazar
 
----
+----
 
 Oportunidad/Problemática
 
@@ -18,8 +15,7 @@ El problema principal es la falta de dirección y gasto de tiempo in-game en rel
 
 Debido a esta problemática, la idea fue en desarrollar una guía rápida y eficiente que permita a los jugadores mejorar sus armaduras y/o personajes dentro del juego sin la necesidad de buscar múltiples guías o fuentes. Esta guía proporcionará información detallada sobre los ítems necesarios y dónde encontrarlos, optimizando así la experiencia del jugador.
 
----
-
+----
 Link de GitHub:
 https://github.com/gsalazar2023/zeldasdiaryapp.git
 
