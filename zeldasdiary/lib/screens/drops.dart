@@ -280,8 +280,7 @@ class _MonsterPageState extends State<MyMonsterPage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) =>  ArmorScreen()),
+                  MaterialPageRoute(builder: (context) => const ArmorScreen()),
                 );
               },
             ),
@@ -591,8 +590,7 @@ class _ItemPageState extends State<MyItemPage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) =>  ArmorScreen()),
+                  MaterialPageRoute(builder: (context) => ArmorScreen()),
                 );
               },
             ),

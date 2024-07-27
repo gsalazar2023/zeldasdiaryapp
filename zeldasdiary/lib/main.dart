@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:zeldasdiary/screens/home.dart';
 
 /*
@@ -12,7 +13,9 @@ naranja: Color.fromARGB(255, 247, 150, 32)
 
  */
 
-void main() {
+Future main() async {
+  await Future.delayed(const Duration(seconds: 2));
+  FlutterNativeSplash.remove();
   runApp(const MyApp());
 }
 

@@ -1,11 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:zeldasdiary/data/armors.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:zeldasdiary/screens/home.dart';
+import 'package:zeldasdiary/screens/drops.dart';
 
 class ArmorScreen extends StatefulWidget {
+  const ArmorScreen({super.key});
+
   @override
   _ArmorScreenState createState() => _ArmorScreenState();
 }
@@ -20,7 +23,8 @@ class _ArmorScreenState extends State<ArmorScreen> {
   }
 
   Future<List<Armors>> fetchArmors() async {
-    final String response = await rootBundle.loadString('assets/json/armor.json');
+    final String response =
+        await rootBundle.loadString('assets/json/armor.json');
     List<dynamic> data = jsonDecode(response);
     return data.map<Armors>((json) => Armors.fromJson(json)).toList();
   }
@@ -31,11 +35,11 @@ class _ArmorScreenState extends State<ArmorScreen> {
       appBar: AppBar(
         foregroundColor: Colors.white,
         backgroundColor: const Color.fromARGB(255, 30, 183, 222),
-        title: SizedBox(
+        title: const SizedBox(
           width: double.infinity,
           child: Center(
             child: Text('Armor List',
-                style: const TextStyle(
+                style: TextStyle(
                     fontFamily: 'The Wild Breath of Zelda', fontSize: 50)),
           ),
         ),
@@ -59,32 +63,31 @@ class _ArmorScreenState extends State<ArmorScreen> {
             ListTile(
               title: const Text('Home'),
               onTap: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => HomePage()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyCustomForm()),
+                );
               },
             ),
             ListTile(
               title: const Text('Monsters'),
               onTap: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //       builder: (context) =>
-                //           MyMonsterPage(title: 'Monster Drops')),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          MyMonsterPage(title: 'Monster Drops')),
+                );
               },
             ),
             ListTile(
               title: const Text('Items'),
               onTap: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //       builder: (context) =>
-                //           MyItemPage(title: 'Item Drops')),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MyItemPage(title: 'Item Drops')),
+                );
               },
             ),
             ListTile(
@@ -92,7 +95,7 @@ class _ArmorScreenState extends State<ArmorScreen> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ArmorScreen()),
+                  MaterialPageRoute(builder: (context) => const ArmorScreen()),
                 );
               },
             ),
@@ -157,7 +160,7 @@ class _ArmorScreenState extends State<ArmorScreen> {
 class ArmorDetailScreen extends StatelessWidget {
   final Armors armor;
 
-  const ArmorDetailScreen({Key? key, required this.armor}) : super(key: key);
+  const ArmorDetailScreen({super.key, required this.armor});
 
   @override
   Widget build(BuildContext context) {
@@ -206,8 +209,6 @@ class ArmorDetailScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 16),
-                  const SizedBox(height: 8),
                   const SizedBox(height: 16),
                   const Text(
                     'Location:',

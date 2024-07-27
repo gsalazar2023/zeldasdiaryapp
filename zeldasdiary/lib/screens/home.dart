@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:zeldasdiary/screens/drops.dart';
+import 'package:zeldasdiary/screens/armorlist.dart';
 
 /*
 colores
@@ -52,6 +53,66 @@ class MyCustomForm extends StatelessWidget {
             ),
           ),
         ),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              const DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 158, 222, 30),
+                ),
+                child: Text(
+                  'Navigation Menu',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),
+              ),
+              ListTile(
+                title: const Text('Home'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyCustomForm()),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Monsters'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            const MyMonsterPage(title: 'Monster Drops')),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Items'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            const MyItemPage(title: 'Item Drops')),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Armors'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ArmorScreen()),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
         body: Container(
           color: Color.fromARGB(255, 35, 52, 99),
           child: Center(
@@ -70,7 +131,13 @@ class MyCustomForm extends StatelessWidget {
                               fontFamily: 'The Wild Breath of Zelda',
                               fontSize: 30)),
                       ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ArmorScreen()),
+                            );
+                          },
                           child: SvgPicture.asset(
                             iconoArmor,
                             height: 60,
