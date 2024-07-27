@@ -281,7 +281,7 @@ class _MonsterPageState extends State<MyMonsterPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const MyArmorPage(title: 'Armors')),
+                      builder: (context) =>  ArmorScreen()),
                 );
               },
             ),
@@ -592,7 +592,7 @@ class _ItemPageState extends State<MyItemPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const MyArmorPage(title: 'Armors')),
+                      builder: (context) =>  ArmorScreen()),
                 );
               },
             ),
