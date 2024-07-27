@@ -1,16 +1,16 @@
 class Armors {
   int id;
   String name;
-  List<String> location;
+  List<String> upgradeItems;
   String image;
 
-  Armors(this.id, this.name, this.location, this.image);
+  Armors(this.id, this.name, this.upgradeItems, this.image);
 
   factory Armors.fromJson(Map<String, dynamic> json) {
     return Armors(
       json['id'],
       json['name'],
-      List<String>.from(json['location']),
+      List<String>.from(json['upgradeItems']),
       json['image'],
     );
   }
